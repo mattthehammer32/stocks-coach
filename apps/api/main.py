@@ -3,7 +3,7 @@ from fastapi import FastAPI, WebSocket
 from pydantic import BaseModel
 import pandas as pd, numpy as np, yfinance as yf
 import asyncio, json
-from .news import fetch_polygon_news
+from news import fetch_polygon_news
 
 app = FastAPI(title="Stocks Coach API")
 
