@@ -1,0 +1,16 @@
+
+services:
+  api:
+    build: ../apps/api
+    ports: ["8000:8000"]
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+  web:
+    working_dir: /app
+    image: node:20
+    volumes:
+      - ../apps/web:/app
+    environment:
+      - NEXT_PUBLIC_API_URL=http://host.docker.internal:8000
+    command: sh -c "npm i -g pnpm && pnpm i && pnpm dev"
+    ports: ["3000:3000"]
+    depends_on: [api]
