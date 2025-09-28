@@ -1,7 +1,7 @@
 import os, time, math
 from typing import Dict, List
 import httpx
-from summarizer import summarize_article
+from apps.api.summarizer import summarize_article
 
 POLYGON_KEY = os.getenv("POLYGON_KEY")
 POLYGON_BASE = os.getenv("POLYGON_BASE", "https://api.polygon.io")
